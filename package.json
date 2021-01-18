@@ -2,7 +2,7 @@
   "name": "getir",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "prestart": "babel ./src --out-dir build",
     "start": "node ./build",
