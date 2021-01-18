@@ -8,7 +8,7 @@ This is a RESTful API with a single endpoint that fetches data in the provided M
 
 #### Link to Hosted App
 
-- [Base Url](https://getir-backend-task.herokuapp.com/)
+- [Base Url](https://getir-backend-app.herokuapp.com/)
 
 #### Documentation
 
