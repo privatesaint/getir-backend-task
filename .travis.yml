@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "12"
+install: npm install
+script: npm test
+after_success: npm run coverage
+deploy:
+  provider: heroku
+  app:
+    master: getir-backend-task
+  api_key:
+    secure: AgjDY2lAGxQx2bS5jmEYwWt68pyKCgI87mBm5aw4cqxDLHomwAXv7UnN5MhmgA36lNU7u/gAmwiQMULwunMOxgcHIIH4LrlciSdhqJtlVsaFjBNm0Y55gq6PQkXMNvODGxNcnb5BaXL+3bp7YgmFrkDyBUlkfi+/pD9tPBIC7vyfDcaCpi97unTxZNs6GJckgn8FZGaHPAczyLUyjQvoj6rAksyEfmwDE2EFnbAdrkGxMzX3j56meB7so2Id+8C+fy9ZdCFCE5CEkEMrK3ycilG4VQ+h1NOxi12UdHPbMCYovOu6f1NvU2piORdng39QzpMVy7l72+MY5F4E+7/Ag4VLJziAeowQo3ESQI7qR9KnwfnYsHa/0qsNliYalxQdNBzGAnGA1xd/+24wLevIj5YHsZaNnxvC2SC4mzenThiH9vfvFmesisoVesGRClYjwmAuc2RJd9Aoo+URWlseAKNND649gHmDxq80TpugEVcBSe7aEDigr+Ov9PKNGGOuZ1giPAOxpFC68ghp7dTYWdYRgNkoyOWxabdx/iXkeXF0I8jIopNIAuJxa7hdhMCfVceQ5k8pSMPuQaehQNPWs/mHr9Sgz1CEa3h9B6k8TuZ6Vnrr2mQ09P2u1sE/0Cu76K1Tzb9vGsqjBgw/TeRHccxppMh2sDn19sjYy4GjHcU=
