@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 // initialize express app
 const app = express();
@@ -23,6 +24,9 @@ import routes from "./routes";
 // express middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Setup CORS
+app.use(cors());
 
 // routes
 app.use("/api", routes);
