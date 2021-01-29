@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "../documentaion.json";
 
 // initialize express app
 const app = express();
@@ -14,8 +16,8 @@ import ErrorHandler from "./utils/ErrorHandler";
 
 // Handle uncaught exception
 process.on("uncaughtException", (err) => {
-  console.log(`ERROR: ${err.message}`);
-  process.exit(1);
+    console.log(`ERROR: ${err.message}`);
+    process.exit(1);
 });
 
 // routes
@@ -28,12 +30,21 @@ app.use(express.urlencoded({ extended: false }));
 // Setup CORS
 app.use(cors());
 
+// api documentation
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // routes
+app.get("/", (req, res, next) => {
+    res.json({
+        message: "Welcome to Getir Backend Task.",
+    });
+});
+
 app.use("/api", routes);
 
 // Handle invalid routes
 app.all("*", (req, res, next) => {
-  next(new ErrorHandler(`${req.originalUrl} route not found`, 404));
+    next(new ErrorHandler(`${req.originalUrl} route not found`, 404));
 });
 
 // error handler

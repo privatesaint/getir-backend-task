@@ -12,7 +12,7 @@ This is a RESTful API with a single endpoint that fetches data in the provided M
 
 #### Documentation
 
-- [Documentation](https://documenter.getpostman.com/view/10287122/TVzXBFAb)
+- [Documentation](https://getir-backend-app.herokuapp.com/docs)
 
 #### How to use the app
 

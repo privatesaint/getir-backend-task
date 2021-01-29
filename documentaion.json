@@ -1,0 +1,87 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Getir Backend Assessment API documentation",
+        "version": "1.0.0",
+        "title": "Getir Backend Assessment API Doc",
+        "contact": {
+            "email": "olowogbayigbenga@gmail.com"
+        }
+    },
+    "basePath": "/api",
+    "tags": [{
+        "name": "record",
+        "description": "Everything about records"
+    }],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/records": {
+            "post": {
+                "tags": ["record"],
+                "summary": "Get records",
+                "description": "Fetch records based on startDate, endDate, minCount and maxCount",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "body",
+                    "in": "body",
+                    "description": "Input data",
+                    "required": true,
+                    "type": "object",
+                    "schema": {
+                        "$ref": "#/definitions/records"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "{ code: 0, msg: 'Success', records: [] }",
+                        "schema": {
+                            "$ref": "#/definitions/recordsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "{ code: 1, msg: 'startDate must be a valid date' or 'minCount must be number' }"
+                    },
+                    "500": {
+                        "description": "{ code: 2, msg: 'Internal Server Error.' }"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "records": {
+            "required": ["startDate", "endDate", "minCount", "maxCount"],
+            "properties": {
+                "startDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "minCount": {
+                    "type": "number"
+                },
+                "maxCount": {
+                    "type": "number"
+                }
+            }
+        },
+        "recordsResponse": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "count": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}
